@@ -1,0 +1,11 @@
+# AWS-CERTIFICATION
+
+run the instance 
+download the keypair(pem file)
+change the permissions of pem file( chmod 400 pem file)
+enter command
+ aws s3 ls
+ aws configure
+AWS Access Key ID [None]: AKIAJX7R5OZUKP23NZJA    ( u will get this when you create user in IAM --- download the csv file which will have )
+AWS Secret Access Key [None]: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
+Default region name [None]: us-east-1c
