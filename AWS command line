@@ -17,8 +17,39 @@ cd .aws
 ls 
 vi credentials
 
+## BASH SCRITPING LAB####
+##service  S3
+
+create a bucket
+upload file index.html
+index.html : <html><body><h1> Hello JAGADEESH</h1>/body></html>
+##Service  IAM 
+ create role 
+ s3fullaccess
+## Service Ec2
+
+number of instance
+advance settings:
+#!/bin/bash
+yum update -y
+
+##MAC terminal
+
+yum update -y
+yum install httpd -y
+service httpd start
+chkconfig httpd on
+cd /var/www/html
+aws s3 ls
+aws s3 cp s3://mywebsitenew/index.html.rtf /var/www/html
+
+terminate the  instance
 
 
+
+  
+  
+  
 
 
 
