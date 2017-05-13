@@ -1,0 +1,89 @@
+Creating a wordpress
+
+AWS console
+
+step :1 
+IAM role
+create a role
+S3role 
+s3fullaccess
+step 2:
+create 2 S3 buckets
+wordpresscode16jagadeesh
+wordpressmedia16jagadeesh
+##step 3:
+security groups:
+create asecurity group webDMZ
+edit Inbound 
+add ssh and Http 
+source 0.0.0.0/0
+create one more securitygroup
+rdssecuritygroup
+edit inbound
+add MYSQL/aurora source: select webDMZ
+
+step4: CloudFront
+step 5: RDS
+lauch DB instance
+step 6: EC2  (load balancer)
+add instance to load balancer after creating instance
+step7 : Route 53
+create a new record with Alias as target
+
+step 8: create new instance 
+
+SSH in to Ec2 instance
+
+yum update -y
+yum install httpd php php-mysql stress -y
+cd /etc/httpd/conf
+cp httpd.conf httpdconfbackup.conf
+vi httpd.conf
+ edit allow All
+ cd /var/www/html
+ vi healthy.html
+ wget https://wordpress.org/latest.tar.gz
+ tar -xzf latest.tar
+ cp -r wordpress/* /var/www/html
+ rm -rf wordpress
+ rm -rf latest.tar.gz
+  chmod -R 755 wp-content
+  chown -R apache.apache wp-content
+  service httpd start
+  chkconfig httpd on
+  vi wp-config.php
+  aws s3 ls
+  aws s3 cp --recursive /var/www/html s3://wordpresscode16jagadeesh
+ 
+ aws s3 ls wordpresscode16jagadeesh
+ 
+ copy public dns and paste in web browser
+ 
+ copy the endpoint form RDS while loging into wordpress account.
+ your website is reday to use
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
